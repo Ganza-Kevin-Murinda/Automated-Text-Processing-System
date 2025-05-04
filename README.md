@@ -28,12 +28,45 @@ A high-performance Java application designed to automate large-scale text proces
 
 ---
 
-## 🧱 Architecture: MVC Design Pattern
+## 🧱 Architecture: MVC + Service & Utils Design Pattern
 
+### **Model**
+- **Purpose:** Represents the core business data and logic.
+- **Responsibilities:**
+  - Defines data structures like `TextRecord`
+  - Stores and manipulates in-memory records
+  - No UI or controller logic
 
-- **Model:** Business logic and data structures
-- **View:** JavaFX interface components
-- **Controller:** Logic to handle UI interaction and connect model/view
+### **View**
+- **Purpose:** JavaFX user interface components
+- **Responsibilities:**
+  - Presents data to the user
+  - Contains layout and style definitions
+  - Forwards user input to controllers
+
+### **Controller**
+- **Purpose:** Acts as the bridge between View and Model
+- **Responsibilities:**
+  - Handles user input and events
+  - Updates the Model based on user actions
+  - Updates the View when the Model changes
+  - Delegates business logic to the Service layer
+
+### **Service**
+- **Purpose:** Contains core business operations and processing logic
+- **Responsibilities:**
+  - Handles text processing (e.g., analysis, regex application)
+  - Manages text records (create, update, delete, search)
+  - Coordinates with utility classes for tasks like caching or I/O
+
+### **Utils**
+- **Purpose:** Provide reusable helper methods and utilities
+- **Responsibilities:**
+  - Logging (`TextProcessingUtils.logInfo(...)`)
+  - File encoding handling
+  - Pattern formatting, etc.
+  - No direct interaction with UI or business logic
+
 
 ---
 
@@ -50,23 +83,24 @@ src/
 │   │               │   ├── TextProcessingModel.java
 │   │               │   ├── RegexModel.java
 │   │               │   ├── FileModel.java
-│   │               │   └── DataModel.java
-|   |               |   └── TextProcessingAppModel.java
+|   |               |   └── DataModel.java
 │   │               ├── view/
 │   │               │   ├── MainView.java
 │   │               │   ├── TextEditorView.java
 │   │               │   ├── RegexView.java
 │   │               │   ├── ResultsView.java
+│   │               │   ├── TextRecordView.java
 │   │               │   └── FileOperationsView.java
 │   │               ├── controller/
 │   │               │   ├── MainController.java
 │   │               │   ├── TextProcessingController.java
 │   │               │   ├── FileController.java
 │   │               │   └── RegexController.java
+│   │               ├── service/
+│   │               │   └── TextProcessingService.java
 |   |               ├── util/
 │   │               │   ├── TextProcessingUtils.java
-│   │               │   ├── TextProcessingException.java
-│   │               │   └── ConfigManager.java
+│   │               │   └── TextProcessingException.java
 │   │               └── TextProcessorApplication.java
 │   └── resources/
 │       ├── css/
@@ -97,7 +131,7 @@ src/
 ## 📹 Video
 
 ```
-Link
+https://screenrec.com/share/YzcbhFuT0x
 ```
 
 ## 🧰 How to Run
