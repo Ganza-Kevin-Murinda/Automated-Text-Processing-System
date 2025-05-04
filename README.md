@@ -63,6 +63,8 @@ A high-performance Java application designed to automate large-scale text proces
 - **Purpose:** Provide reusable helper methods and utilities
 - **Responsibilities:**
   - Logging (`TextProcessingUtils.logInfo(...)`)
+    ![image](https://github.com/user-attachments/assets/ae31f53d-0155-4307-bb47-afcdad4db4e6)
+
   - File encoding handling
   - Pattern formatting, etc.
   - No direct interaction with UI or business logic
