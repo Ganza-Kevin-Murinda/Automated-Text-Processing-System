@@ -38,7 +38,6 @@ public class AutomatedTextProcessingApp extends Application {
 
             // Create the main scene
             Scene scene = new Scene(mainView.getRoot(), 1024, 830);
-            scene.getStylesheets().add(getClass().getResource("/com/atps/automatedtextprocessingsystem/styles/main.css").toExternalForm());
 
             // Set up the primary stage
             primaryStage.setScene(scene);
