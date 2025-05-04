@@ -1,5 +1,6 @@
 package com.atps.automatedtextprocessingsystem.model;
 
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.function.Function;
 import java.util.regex.Matcher;
@@ -65,6 +66,7 @@ public class DataModel {
      */
     public boolean updateTextRecord(int id, String name, String content) {
         // Find the record with the given ID
+
         for (TextRecord record : textRecords) {
             if (record.getId() == id) {
 
@@ -222,14 +224,14 @@ public class DataModel {
         private String name;
         private String content;
         private String source;
-        private Date creationDate;
+        private LocalDateTime creationDate;
 
         public TextRecord(int id, String name, String content, String source) {
             this.id = id;
             this.name = name;
             this.content = content;
             this.source = source;
-            this.creationDate = new Date();
+            this.creationDate = LocalDateTime.now();
         }
 
         public int getId() {
@@ -256,13 +258,13 @@ public class DataModel {
             return source;
         }
 
-        public Date getCreationDate() {
+        public LocalDateTime getCreationDate() {
             return creationDate;
         }
 
         @Override
         public String toString() {
-            return "TextRecord[id=" + id + ", name='" + name + "', source='" + source +
+            return "TextRecord[id=" + id + ", name='" + name + "', content='"+ content +"', source='" + source +
                     "', created=" + creationDate + ", content length=" + content.length() + "]";
         }
 
