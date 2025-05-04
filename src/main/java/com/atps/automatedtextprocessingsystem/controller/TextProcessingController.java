@@ -55,6 +55,11 @@ public class TextProcessingController {
         });
     }
 
+    public TextProcessingService getService() {
+        return service;
+    }
+
+
     /**
      * Get the text area reference
      * @return The JavaFX text area
@@ -137,8 +142,8 @@ public class TextProcessingController {
      * @param source Source of the text
      * @return ID of the created record
      */
-    public int saveAsTextRecord(String name, String source) {
-        int recordId = service.saveCurrentTextAsRecord(name, source);
+    public int saveAsTextRecord(String name, String content, String source) {
+        int recordId = service.addTextRecord(name, content, source);
         TextProcessingUtils.logInfo("Text saved as record: " + name);
         return recordId;
     }
